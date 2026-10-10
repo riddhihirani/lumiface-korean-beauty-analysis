@@ -1,0 +1,107 @@
+[
+  {
+    "id": "eye_01",
+    "frame_style": "Hexagonal Geometric Titanium",
+    "category": "geometric",
+    "description": "Architectural hexagonal wire frame adds subtle contemporary structure while maintaining balanced facial proportions.",
+    "suitable_face_shapes": ["oval", "round", "diamond"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Rose Gold", "Warm Champagne"],
+      "Summer Cool": ["Polished Silver", "Soft Grey Metal"],
+      "Autumn Warm": ["Warm Gold", "Bronze Metal"],
+      "Winter Vivid": ["Jet Black", "Silver Chrome"]
+    },
+    "color_hex_swatches": ["#D4AF37", "#E6C594", "#C0C0C0"],
+    "geometric_reason": "Geometric angles introduce crisp horizontal structure, creating architectural contrast against soft cheek curves."
+  },
+  {
+    "id": "eye_02",
+    "frame_style": "Sculpted Uplifting Cat-Eye",
+    "category": "cat-eye",
+    "description": "Gracefully swept-up outer brow line lifts facial focal points and highlights high cheekbone geometry.",
+    "suitable_face_shapes": ["oval", "diamond", "square"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Coral Peach Acetate", "Rose Gold"],
+      "Summer Cool": ["Dusty Rose Acetate", "Silver Metal"],
+      "Autumn Warm": ["Deep Amber Tortoise", "Warm Mocha"],
+      "Winter Vivid": ["Crimson Black Acetate", "Polished Black"]
+    },
+    "color_hex_swatches": ["#C86D7C", "#8A1C48", "#4A3B32"],
+    "geometric_reason": "Uplifting browline draws visual attention upward away from wide cheekbones or lower jaw angles."
+  },
+  {
+    "id": "eye_03",
+    "frame_style": "Minimalist Round Wire-Rim",
+    "category": "round",
+    "description": "Gentle Monster inspired lightweight round wire rim offering timeless Korean aesthetic harmony.",
+    "suitable_face_shapes": ["square", "oval", "heart"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Champagne Gold", "Warm Bronze"],
+      "Summer Cool": ["Cool Silver", "Matte Platinum"],
+      "Autumn Warm": ["Antique Gold", "Warm Tortoise"],
+      "Winter Vivid": ["Black Titanium", "High-Shine Silver"]
+    },
+    "color_hex_swatches": ["#E6C594", "#B88E38", "#1F1F1F"],
+    "geometric_reason": "Circular lens curvature softens angular jawline geometry and balances sharp chin contours."
+  },
+  {
+    "id": "eye_04",
+    "frame_style": "Structured Architectural Rectangular",
+    "category": "rectangular",
+    "description": "Slim horizontal rectangular frame introducing clean linear contrast across soft facial features.",
+    "suitable_face_shapes": ["round", "oval"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Warm Honey Tortoise", "Rose Gold"],
+      "Summer Cool": ["Transparent Crystal", "Silver Metal"],
+      "Autumn Warm": ["Dark Mocha Acetate", "Bronze"],
+      "Winter Vivid": ["Piano Black Acetate", "Deep Sapphire"]
+    },
+    "color_hex_swatches": ["#2C2C2C", "#6E473B", "#A0A0A0"],
+    "geometric_reason": "Low-profile rectangular lenses visually widen cheek regions and elongate round cheek contours."
+  },
+  {
+    "id": "eye_05",
+    "frame_style": "Oversized Wayfarer Square",
+    "category": "square",
+    "description": "Bold square silhouette with a strong top brow bar that cuts vertical facial length.",
+    "suitable_face_shapes": ["oblong", "round"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Light Clear Amber", "Peach Tortoise"],
+      "Summer Cool": ["Smoke Crystal", "Slate Grey"],
+      "Autumn Warm": ["Classic Havana Tortoise", "Rich Mahogany"],
+      "Winter Vivid": ["Onyx Black", "Deep Wine Acetate"]
+    },
+    "color_hex_swatches": ["#362219", "#593E32", "#111111"],
+    "geometric_reason": "Wide frame width and tall lens height break up vertical face length, introducing horizontal equilibrium."
+  },
+  {
+    "id": "eye_06",
+    "frame_style": "Teardrop Double-Bridge Aviator",
+    "category": "aviator",
+    "description": "Iconic double-bridge metal aviator frame drawing focus downward to balance broad foreheads.",
+    "suitable_face_shapes": ["square", "oval", "heart"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Polished Warm Gold", "Rose Gold"],
+      "Summer Cool": ["Matte Silver", "Gunmetal"],
+      "Autumn Warm": ["Brushed Bronze", "Deep Amber"],
+      "Winter Vivid": ["High-Gloss Silver", "Black Chrome"]
+    },
+    "color_hex_swatches": ["#D4AF37", "#8C8C8C", "#4A3B32"],
+    "geometric_reason": "Teardrop lens gradient draws emphasis downward, balancing wider forehead widths."
+  },
+  {
+    "id": "eye_07",
+    "frame_style": "Minimalist Oval Rimless Titanium",
+    "category": "oval",
+    "description": "Ultra-lightweight rimless oval frame providing an invisible, uncluttered aesthetic.",
+    "suitable_face_shapes": ["heart", "diamond", "square"],
+    "recommended_colors_by_season": {
+      "Spring Light": ["Rose Gold Temples", "Light Champagne"],
+      "Summer Cool": ["Silver Temples", "Pale Lavender"],
+      "Autumn Warm": ["Warm Bronze Temples", "Honey Gold"],
+      "Winter Vivid": ["Black Titanium Temples", "Chrome"]
+    },
+    "color_hex_swatches": ["#E8D9C5", "#C0C0C0", "#222222"],
+    "geometric_reason": "Rimless bottom edge avoids adding bulk to delicate chin points or prominent cheekbones."
+  }
+]

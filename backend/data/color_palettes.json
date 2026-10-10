@@ -1,0 +1,78 @@
+{
+  "spring_light": {
+    "season": "Spring Light",
+    "title": "Warm & Delicate Bloom",
+    "description": "Clear, bright, and warm tones with high clarity. Inspired by spring cherry blossoms and peach blossoms.",
+    "best_colors": [
+      {"name": "Soft Peach", "hex": "#FFB7B2", "category": "best"},
+      {"name": "Coral Pink", "hex": "#F08080", "category": "best"},
+      {"name": "Cream Yellow", "hex": "#FFF1C5", "category": "best"},
+      {"name": "Warm Mint", "hex": "#B5EAD7", "category": "best"},
+      {"name": "Ivory White", "hex": "#FFFFF0", "category": "best"},
+      {"name": "Apricot", "hex": "#FBCEB1", "category": "best"}
+    ],
+    "worst_colors": [
+      {"name": "Deep Charcoal", "hex": "#36454F", "category": "avoid"},
+      {"name": "Dark Plum", "hex": "#4A0E17", "category": "avoid"},
+      {"name": "Cool Fuchsia", "hex": "#C71585", "category": "avoid"},
+      {"name": "Pure Black", "hex": "#000000", "category": "avoid"}
+    ]
+  },
+  "summer_cool": {
+    "season": "Summer Cool",
+    "title": "Soft & Elegant Hydrangea",
+    "description": "Muted, cool, and soft lavender and rose tones. Highly popular in modern K-beauty MLBB looks.",
+    "best_colors": [
+      {"name": "Dusty Rose", "hex": "#DCAE96", "category": "best"},
+      {"name": "Soft Lavender", "hex": "#E6E6FA", "category": "best"},
+      {"name": "Powder Blue", "hex": "#B0E0E6", "category": "best"},
+      {"name": "Cool Mauve", "hex": "#915C83", "category": "best"},
+      {"name": "Berry Milk", "hex": "#DDA0DD", "category": "best"},
+      {"name": "Soft Grey", "hex": "#D3D3D3", "category": "best"}
+    ],
+    "worst_colors": [
+      {"name": "Mustard Yellow", "hex": "#FFDB58", "category": "avoid"},
+      {"name": "Warm Bronze", "hex": "#CD7F32", "category": "avoid"},
+      {"name": "Bright Orange", "hex": "#FF6600", "category": "avoid"},
+      {"name": "Olive Green", "hex": "#808000", "category": "avoid"}
+    ]
+  },
+  "autumn_warm": {
+    "season": "Autumn Warm",
+    "title": "Rich & Deep Earthy Warmth",
+    "description": "Deep, cozy, and golden earth tones. Inspired by K-beauty chili brick reds and dried rose hues.",
+    "best_colors": [
+      {"name": "Brick Red", "hex": "#B22222", "category": "best"},
+      {"name": "Chili Warm", "hex": "#C0392B", "category": "best"},
+      {"name": "Warm Terracotta", "hex": "#E27D60", "category": "best"},
+      {"name": "Olive Khaki", "hex": "#6B8E23", "category": "best"},
+      {"name": "Warm Camel", "hex": "#C19A6B", "category": "best"},
+      {"name": "Deep Mocha", "hex": "#4A3B32", "category": "best"}
+    ],
+    "worst_colors": [
+      {"name": "Neon Pink", "hex": "#FF69B4", "category": "avoid"},
+      {"name": "Icy Cyan", "hex": "#E0FFFF", "category": "avoid"},
+      {"name": "Pastel Lavender", "hex": "#E6E6FA", "category": "avoid"},
+      {"name": "Pure White", "hex": "#FFFFFF", "category": "avoid"}
+    ]
+  },
+  "winter_vivid": {
+    "season": "Winter Vivid",
+    "title": "High-Contrast & Cool Jewel Tones",
+    "description": "Sharp, deep, high-contrast cool colors. Striking jewel tones and deep cherry reds.",
+    "best_colors": [
+      {"name": "Deep Cherry Red", "hex": "#800020", "category": "best"},
+      {"name": "Pure Emerald", "hex": "#008080", "category": "best"},
+      {"name": "Royal Sapphire", "hex": "#0F52BA", "category": "best"},
+      {"name": "True Black", "hex": "#0A0A0A", "category": "best"},
+      {"name": "Magenta Velvet", "hex": "#8B008B", "category": "best"},
+      {"name": "Crisp White", "hex": "#FFFFFF", "category": "best"}
+    ],
+    "worst_colors": [
+      {"name": "Warm Mustard", "hex": "#E5A823", "category": "avoid"},
+      {"name": "Peach Orange", "hex": "#FFDAB9", "category": "avoid"},
+      {"name": "Earthy Khaki", "hex": "#8FBC8F", "category": "avoid"},
+      {"name": "Warm Beige", "hex": "#F5F5DC", "category": "avoid"}
+    ]
+  }
+}

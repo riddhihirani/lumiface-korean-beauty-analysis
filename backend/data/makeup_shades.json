@@ -1,0 +1,123 @@
+[
+  {
+    "id": "lip_01",
+    "name": "Juicy Coral Tint",
+    "brand": "Rom&nd (Korean Beauty)",
+    "category": "lipstick",
+    "shade_name": "Juicy Coral #07",
+    "hex_code": "#F26D6D",
+    "suitable_undertones": ["Warm"],
+    "suitable_seasons": ["Spring Light"],
+    "reason": "Vibrant warm coral adds instant brightness to light warm undertones, perfectly complementing Korean glass skin aesthetics."
+  },
+  {
+    "id": "lip_02",
+    "name": "Velvet Fig Rose MLBB",
+    "brand": "Peripera (Korean Beauty)",
+    "category": "lipstick",
+    "shade_name": "Rosy Nude #17",
+    "hex_code": "#C86D7C",
+    "suitable_undertones": ["Cool", "Neutral"],
+    "suitable_seasons": ["Summer Cool"],
+    "reason": "Muted rosy MLBB shade creates a soft-focus gradient lip effect ideal for cool and neutral complexions."
+  },
+  {
+    "id": "lip_03",
+    "name": "Chili Brick Velvet",
+    "brand": "3CE (3 Concept Eyes)",
+    "category": "lipstick",
+    "shade_name": "Daffodil Warm Brick",
+    "hex_code": "#B83B32",
+    "suitable_undertones": ["Warm"],
+    "suitable_seasons": ["Autumn Warm"],
+    "reason": "Deep warm terracotta chili tint brings warmth and sophistication to golden autumn skin tones."
+  },
+  {
+    "id": "lip_04",
+    "name": "Berry Plum Tint",
+    "brand": "Clio (Korean Beauty)",
+    "category": "lipstick",
+    "shade_name": "Deep Plum Berry #12",
+    "hex_code": "#8A1C48",
+    "suitable_undertones": ["Cool"],
+    "suitable_seasons": ["Winter Vivid"],
+    "reason": "High-contrast deep berry tint provides dramatic definition and highlights crisp cool undertones."
+  },
+  {
+    "id": "lip_05",
+    "name": "Nude Apricot Glass Glow",
+    "brand": "Amuse Dew Tint",
+    "category": "lipstick",
+    "shade_name": "Boksoonga Nude #03",
+    "hex_code": "#E08B74",
+    "suitable_undertones": ["Warm", "Neutral"],
+    "suitable_seasons": ["Spring Light", "Autumn Warm"],
+    "reason": "Translucent apricot MLBB tint delivers a natural dewy sheen suitable for warm nude looks."
+  },
+  {
+    "id": "lip_06",
+    "name": "Cool Mauve Velvet",
+    "brand": "Hera Sensual Powder Tint",
+    "category": "lipstick",
+    "shade_name": "Rosy Nude #435",
+    "hex_code": "#A8586B",
+    "suitable_undertones": ["Cool"],
+    "suitable_seasons": ["Summer Cool", "Winter Vivid"],
+    "reason": "Sophisticated cool rose tone providing velvety contrast for cool skin complexions."
+  },
+  {
+    "id": "blush_01",
+    "name": "Soft Peach Jelly Blush",
+    "brand": "A'pieu Juicy-Pang",
+    "category": "blush",
+    "shade_name": "Fresh Peach PK01",
+    "hex_code": "#FFB3A7",
+    "suitable_undertones": ["Warm"],
+    "suitable_seasons": ["Spring Light", "Autumn Warm"],
+    "reason": "Dewy translucent peach flush delivers a natural youthful Korean flush."
+  },
+  {
+    "id": "blush_02",
+    "name": "Lavender Milk Pastel",
+    "brand": "Rom&nd Better Than Cheek",
+    "category": "blush",
+    "shade_name": "Blueberry Milk VL01",
+    "hex_code": "#E2C4DC",
+    "suitable_undertones": ["Cool"],
+    "suitable_seasons": ["Summer Cool", "Winter Vivid"],
+    "reason": "Pastel lavender neutralizes excess yellowness and adds a translucent luminous glow."
+  },
+  {
+    "id": "blush_03",
+    "name": "Warm Nude Terracotta Blush",
+    "brand": "3CE Face Blush",
+    "category": "blush",
+    "shade_name": "Nude Peach",
+    "hex_code": "#D68C72",
+    "suitable_undertones": ["Warm"],
+    "suitable_seasons": ["Autumn Warm"],
+    "reason": "Earthy warm terracotta flush sculpting cheek contours elegantly."
+  },
+  {
+    "id": "eyeshadow_01",
+    "name": "All Take Mood Peach Palette",
+    "brand": "Peripera",
+    "category": "eyeshadow",
+    "shade_name": "Warm Peach Nude Shimmer",
+    "hex_code": "#D99B82",
+    "suitable_undertones": ["Warm"],
+    "suitable_seasons": ["Spring Light", "Autumn Warm"],
+    "reason": "Harmonious warm beige and soft shimmer tones for subtle eye contouring."
+  },
+  {
+    "id": "eyeshadow_02",
+    "name": "Dry Rose Quad",
+    "brand": "3CE",
+    "category": "eyeshadow",
+    "shade_name": "Cool Rose Mauve Shimmer",
+    "hex_code": "#B5838D",
+    "suitable_undertones": ["Cool", "Neutral"],
+    "suitable_seasons": ["Summer Cool", "Winter Vivid"],
+    "reason": "Soft lavender-pink and rosy mauve tones for elegant Korean aesthetic depth."
+  }
+]
