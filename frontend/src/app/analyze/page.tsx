@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { getApiUrl, API_BASE_URL } from '@/lib/api'
 
 interface LightingInfo {
   is_valid: boolean
@@ -230,7 +231,7 @@ export default function AnalysisPage() {
     formData.append('file', selectedFile)
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/analysis/analyze', {
+      const res = await fetch(getApiUrl('/api/analysis/analyze'), {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -254,7 +255,7 @@ export default function AnalysisPage() {
       const data: AnalysisResult = await res.json()
       setResult(data)
     } catch (err: any) {
-      setErrorMsg(err.message || 'Unable to connect to analysis engine at http://127.0.0.1:8000.')
+      setErrorMsg(err.message || `Unable to connect to analysis engine at ${API_BASE_URL}.`)
     } finally {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -290,7 +291,7 @@ export default function AnalysisPage() {
         face_image_base64: result.annotated_image_base64 || imagePreview
       }
 
-      const res = await fetch('http://127.0.0.1:8000/api/report/generate', {
+      const res = await fetch(getApiUrl('/api/report/generate'), {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

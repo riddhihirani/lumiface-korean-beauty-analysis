@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { getApiUrl } from '@/lib/api'
 
 export default function Navbar() {
   const [apiHealth, setApiHealth] = useState<'online' | 'offline' | 'checking'>('checking')
@@ -32,7 +33,7 @@ export default function Navbar() {
 
     async function checkHealth() {
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/health', { cache: 'no-store' })
+        const res = await fetch(getApiUrl('/api/health'), { cache: 'no-store' })
         if (res.ok) {
           const data = await res.json()
           if (data.status === 'healthy') {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { getApiUrl } from '@/lib/api'
 
 interface UserProfile {
   id: number
@@ -32,7 +33,7 @@ export default function ProfilePage() {
   const fetchProfile = async (token: string) => {
     setIsLoading(true)
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/auth/me', {
+      const res = await fetch(getApiUrl('/api/auth/me'), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
 
@@ -72,7 +73,7 @@ export default function ProfilePage() {
 
     setIsSaving(true)
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/auth/profile', {
+      const res = await fetch(getApiUrl('/api/auth/profile'), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

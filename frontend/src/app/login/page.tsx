@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { getApiUrl } from '@/lib/api'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -27,13 +28,13 @@ export default function LoginPage() {
     try {
       let res: Response
       try {
-        res = await fetch('/api/auth/login', {
+        res = await fetch(getApiUrl('/api/auth/login'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.trim(), password }),
         })
       } catch {
-        res = await fetch('http://127.0.0.1:8000/api/auth/login', {
+        res = await fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.trim(), password }),
@@ -68,13 +69,13 @@ export default function LoginPage() {
     try {
       let res: Response
       try {
-        res = await fetch('/api/auth/forgot-password', {
+        res = await fetch(getApiUrl('/api/auth/forgot-password'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.trim() }),
         })
       } catch {
-        res = await fetch('http://127.0.0.1:8000/api/auth/forgot-password', {
+        res = await fetch('/api/auth/forgot-password', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.trim() }),
