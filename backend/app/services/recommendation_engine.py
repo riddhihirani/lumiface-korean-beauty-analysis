@@ -67,8 +67,9 @@ class RecommendationEngine:
 
     def get_makeup_recommendations(self, undertone: str, season: str, skin_lab: Dict[str, float] = None) -> List[Dict[str, Any]]:
         """
-        Calculates Estimated Compatibility Score using CIE L*a*b* color distance Delta E
+        Calculates Estimated Compatibility Score using continuous CIE L*a*b* color distance Delta E
         between skin sample and shade HEX code, combined with undertone/seasonal bonuses.
+        Ranks shades dynamically with lowest Delta E tie-breaking to avoid flat identical scores.
         """
         user_lab = (skin_lab["L"], skin_lab["a"], skin_lab["b"]) if skin_lab else (65.0, 10.0, 14.0)
 
@@ -77,13 +78,13 @@ class RecommendationEngine:
             prod_lab = self.hex_to_lab(prod.get("hex_code", "#C86D7C"))
             delta_e = self.calculate_delta_e(user_lab, prod_lab)
 
-            base_score = 100.0 - (0.75 * delta_e)
-            if undertone in prod.get("suitable_undertones", []):
-                base_score += 10.0
-            if season in prod.get("suitable_seasons", []):
-                base_score += 8.0
+            # Continuous color distance scoring:
+            # Matches receive personal color harmony bonuses, modulated by continuous perceptual delta E
+            undertone_bonus = 10.0 if undertone in prod.get("suitable_undertones", []) else 0.0
+            season_bonus = 8.0 if season in prod.get("suitable_seasons", []) else 0.0
 
-            final_score = min(max(round(base_score, 1), 60.0), 98.0)
+            base_score = 80.0 + undertone_bonus + season_bonus - (0.45 * delta_e)
+            final_score = min(max(round(base_score, 1), 55.0), 98.0)
 
             item = dict(prod)
             item["match_score"] = final_score
@@ -91,7 +92,8 @@ class RecommendationEngine:
             item["delta_e"] = round(delta_e, 2)
             matched.append(item)
 
-        matched.sort(key=lambda x: x["match_score"], reverse=True)
+        # Sort primarily by match_score descending, and break ties by delta_e ascending (closer perceptual match first)
+        matched.sort(key=lambda x: (x["match_score"], -x["delta_e"]), reverse=True)
         return matched
 
     def get_eyewear_recommendations(
@@ -102,7 +104,7 @@ class RecommendationEngine:
     ) -> List[Dict[str, Any]]:
         """
         Calculates dynamic eyewear compatibility scores based on facial geometry rules,
-        aspect ratios, jaw-to-cheek proportions, and personal seasonal color frame matches.
+        continuous aspect ratios, jaw-to-cheek proportions, and personal seasonal color frame matches.
         Returns dynamically ranked recommendations with personalized geometric reasoning.
         """
         is_missing_shape = not face_shape or face_shape.lower() not in ["oval", "round", "square", "heart", "oblong", "diamond"]
@@ -118,7 +120,7 @@ class RecommendationEngine:
         recommendations = []
         for frame in self.eyewear_catalog:
             category = frame.get("category", "")
-            base_score = 70.0
+            base_score = 68.0
 
             # 1. Primary Face Shape & Proportion Rules
             if is_missing_shape:
@@ -126,7 +128,7 @@ class RecommendationEngine:
                 reason_text = f"Neutral compatibility for {frame.get('frame_style', 'frame')}. Face shape is unverified; provide a clear portrait image for custom geometric matching."
             else:
                 if shape_clean in frame.get("suitable_face_shapes", []):
-                    base_score += 18.0
+                    base_score += 15.0
                 else:
                     base_score += 2.0
 
@@ -188,20 +190,20 @@ class RecommendationEngine:
                     else:
                         reason_text = f"Flattering proportion fit for balanced oval geometry."
 
-            # 2. Micro Aspect Ratio & Jaw Modifiers
-            if aspect_ratio < 1.25 and category in ["rectangular", "square"]:
-                base_score += 3.0
-            elif aspect_ratio > 1.44 and category in ["square", "round"]:
-                base_score += 3.0
-            if jaw_to_cheek > 0.84 and category in ["round", "cat-eye"]:
-                base_score += 3.0
+                # Continuous micro-proportion modulations (distinct per individual)
+                if category in ["round", "oval"]:
+                    base_score += (aspect_ratio - 1.35) * 6.0 - (jaw_to_cheek - 0.78) * 4.0
+                elif category in ["rectangular", "geometric"]:
+                    base_score += (1.35 - aspect_ratio) * 6.0 + (jaw_to_cheek - 0.78) * 4.0
+                elif category in ["cat-eye"]:
+                    base_score += (0.80 - jaw_to_cheek) * 5.0
 
-            # 3. Seasonal Color Palette Match
+            # 2. Seasonal Color Palette Match
             season_colors = frame.get("recommended_colors_by_season", {}).get(season_clean, ["Classic Metal"])
             if season_clean in frame.get("recommended_colors_by_season", {}):
                 base_score += 4.0
 
-            final_score = min(max(round(base_score, 1), 62.0), 98.0)
+            final_score = min(max(round(base_score, 1), 60.0), 98.0)
 
             if is_missing_shape:
                 suitability = "General Recommendation"
@@ -229,8 +231,8 @@ class RecommendationEngine:
             }
             recommendations.append(item)
 
-        # Dynamic ranking: sort by match_score descending
-        recommendations.sort(key=lambda x: x["match_score"], reverse=True)
+        # Dynamic ranking: sort by match_score descending, tie-break by ID
+        recommendations.sort(key=lambda x: (x["match_score"], x["id"]), reverse=True)
         return recommendations
 
 recommendation_engine = RecommendationEngine()
