@@ -4,9 +4,32 @@ import mediapipe as mp
 from typing import Dict, Any, Tuple, Optional, List
 import base64
 
+# Robust MediaPipe solutions resolution (supports both legacy mp.solutions and mediapipe.python.solutions)
+try:
+    import mediapipe.python.solutions.face_mesh as mp_face_mesh
+    import mediapipe.python.solutions.drawing_utils as mp_drawing
+    import mediapipe.python.solutions.drawing_styles as mp_drawing_styles
+except (ImportError, AttributeError):
+    mp_solutions = getattr(mp, "solutions", None)
+    if mp_solutions is not None:
+        mp_face_mesh = getattr(mp_solutions, "face_mesh", None)
+        mp_drawing = getattr(mp_solutions, "drawing_utils", None)
+        mp_drawing_styles = getattr(mp_solutions, "drawing_styles", None)
+    else:
+        mp_face_mesh = None
+        mp_drawing = None
+        mp_drawing_styles = None
+
 class FaceAnalyzerService:
     def __init__(self):
-        self.mp_face_mesh = mp.solutions.face_mesh
+        if mp_face_mesh is None:
+            raise RuntimeError(
+                "MediaPipe FaceMesh solution is unavailable. "
+                "Please verify that mediapipe==0.10.14 is installed."
+            )
+        self.mp_face_mesh = mp_face_mesh
+        self.mp_drawing = mp_drawing
+        self.mp_drawing_styles = mp_drawing_styles
         self.face_mesh = self.mp_face_mesh.FaceMesh(
             static_image_mode=True,
             max_num_faces=3,
@@ -98,26 +121,24 @@ class FaceAnalyzerService:
 
         # Draw annotated landmarks & contours
         annotated_img = img_bgr.copy()
-        mp_drawing = mp.solutions.drawing_utils
-        mp_drawing_styles = mp.solutions.drawing_styles
-        
-        # Facemesh tessellation
-        mp_drawing.draw_landmarks(
-            image=annotated_img,
-            landmark_list=face_landmarks,
-            connections=self.mp_face_mesh.FACEMESH_TESSELATION,
-            landmark_drawing_spec=None,
-            connection_drawing_spec=mp_drawing_styles.get_default_face_mesh_tesselation_style()
-        )
-        
-        # Facemesh contours
-        mp_drawing.draw_landmarks(
-            image=annotated_img,
-            landmark_list=face_landmarks,
-            connections=self.mp_face_mesh.FACEMESH_CONTOURS,
-            landmark_drawing_spec=None,
-            connection_drawing_spec=mp_drawing_styles.get_default_face_mesh_contours_style()
-        )
+        if self.mp_drawing and self.mp_drawing_styles:
+            # Facemesh tessellation
+            self.mp_drawing.draw_landmarks(
+                image=annotated_img,
+                landmark_list=face_landmarks,
+                connections=self.mp_face_mesh.FACEMESH_TESSELATION,
+                landmark_drawing_spec=None,
+                connection_drawing_spec=self.mp_drawing_styles.get_default_face_mesh_tesselation_style()
+            )
+            
+            # Facemesh contours
+            self.mp_drawing.draw_landmarks(
+                image=annotated_img,
+                landmark_list=face_landmarks,
+                connections=self.mp_face_mesh.FACEMESH_CONTOURS,
+                landmark_drawing_spec=None,
+                connection_drawing_spec=self.mp_drawing_styles.get_default_face_mesh_contours_style()
+            )
 
         return landmarks_list, annotated_img, num_faces, detection_warning
 
